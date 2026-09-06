@@ -7,7 +7,10 @@ authors = [
     { name = "Wirtual11", email = "22962454+wirtual11@users.noreply.github.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "numpy>=2.5.2",
+    "torch>=2.14.0",
+]
 
 [project.scripts]
 attention-is-all-you-need = "attention_is_all_you_need:main"
