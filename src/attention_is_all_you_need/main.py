@@ -1,6 +1,7 @@
 import torch
 
 from .InputEmbeddings import InputEmbeddings
+from .PositionalEncoding import PositionalEncoding  
 
 def main() -> None:
     print("Hello from attention-is-all-you-need!")
@@ -16,6 +17,15 @@ def main() -> None:
     print(f"Input shape: {input_tokens.shape}")
     print(f"Embedded shape: {embedded.shape}")
 
+     
+    # Create positional encoding
+    seq_len = 100
+    dropout = 0.1
+    pos_encoding = PositionalEncoding(d_model, seq_len, dropout)
+
+    # Test with our embedded tokens
+    positioned_embeddings = pos_encoding(embedded)
+    print(f"Shape after positional encoding: {positioned_embeddings.shape}")
 
 if __name__ == "__main__":
     main()
