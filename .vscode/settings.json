@@ -1,0 +1,7 @@
+{
+    "python-envs.defaultEnvManager": "ms-python.python:uv",
+    "python-envs.defaultPackageManager": "ms-python.python:uv",
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+    "python.terminal.activateEnvironment": true,
+    "python-envs.pythonProjects": []
+}

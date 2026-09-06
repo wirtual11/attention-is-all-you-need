@@ -1,4 +1,6 @@
-from attention_is_all_you_need import InputEmbeddings
+import torch
+
+from .InputEmbeddings import InputEmbeddings
 
 def main() -> None:
     print("Hello from attention-is-all-you-need!")
@@ -13,3 +15,7 @@ def main() -> None:
 
     print(f"Input shape: {input_tokens.shape}")
     print(f"Embedded shape: {embedded.shape}")
+
+
+if __name__ == "__main__":
+    main()
