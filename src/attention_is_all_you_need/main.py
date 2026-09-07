@@ -1,5 +1,7 @@
 import torch
 
+from attention_is_all_you_need.FeedForwardSubLayer import FeedForwardSubLayer
+
 from .InputEmbeddings import InputEmbeddings
 from .PositionalEncoding import PositionalEncoding  
 from .MultiHeadAttention import MultiHeadAttention
@@ -38,5 +40,10 @@ def main() -> None:
     output = multihead_attn(d_model, key, value)
     print(multihead_attn.shape)
 
+    feed_forward = FeedForwardSubLayer(512, 2048)
+    output = feed_forward(x)
+    print(f"Input shape: {x.shape}")
+    print(f"Output shape: {output.shape}")
+    
 if __name__ == "__main__":
     main()
