@@ -5,7 +5,8 @@ import torch
 class MultiHeadAttention(nn.Module):
     def __init__(self, d_model, num_heads):
         super().__init__()
-        assert d_model % num_heads == 0, "d_model must be divisible by 0"
+        if d_model <= 0 or num_heads <= 0 or d_model % num_heads != 0:
+            raise ValueError("d_model must be positive and divisible by a positive num_heads")
 
         self.num_heads = num_heads  
         self.d_model = d_model
@@ -29,12 +30,12 @@ class MultiHeadAttention(nn.Module):
         scores = torch.matmul(query, key.transpose(-2, -1)) / (self.head_dim ** 0.5)
         if mask is not None:
             scores = scores.masked_fill(mask == 0, float('-inf'))
-        attention_weights = F.softmax(scores, dim = 1)
+        attention_weights = F.softmax(scores, dim=-1)
         return torch.matmul(attention_weights, value)
     
     def combine_heads(self, x, batch_size):
         x = x.permute(0,2,1,3).contiguous()
-        return x.view(batch_size, 1, self.d_model)
+        return x.view(batch_size, -1, self.d_model)
     
     def forward(self, query, key, value, mask = None):
         batch_size = query.size(0)
