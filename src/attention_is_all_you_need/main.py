@@ -2,6 +2,7 @@ import torch
 
 from .InputEmbeddings import InputEmbeddings
 from .PositionalEncoding import PositionalEncoding  
+from .MultiHeadAttention import MultiHeadAttention
 
 def main() -> None:
     print("Hello from attention-is-all-you-need!")
@@ -17,7 +18,6 @@ def main() -> None:
     print(f"Input shape: {input_tokens.shape}")
     print(f"Embedded shape: {embedded.shape}")
 
-     
     # Create positional encoding
     seq_len = 100
     dropout = 0.1
@@ -26,6 +26,17 @@ def main() -> None:
     # Test with our embedded tokens
     positioned_embeddings = pos_encoding(embedded)
     print(f"Shape after positional encoding: {positioned_embeddings.shape}")
+
+    # Define attention parameters
+    d_model = 512
+    num_heads = 8
+
+    # Instantiate a MultiHeadAttention instance 
+    multihead_attn = MultiHeadAttention(d_model, num_heads)
+
+    # Pass the query, key, and value matrices through the mechanism
+    output = multihead_attn(d_model, key, value)
+    print(multihead_attn.shape)
 
 if __name__ == "__main__":
     main()
