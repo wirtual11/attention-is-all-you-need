@@ -8,7 +8,7 @@ class Transformer(nn.Module):
         self.encoder = TransformerEncoder(vocab_size, d_model, num_layers, num_heads, d_ff, dropout, max_seq_length)
         self.decoder = TransformerDecoder(vocab_size, d_model, num_layers, num_heads, d_ff, dropout, max_seq_length)
 
-    def forward(self, x, src_mask, tgt_mask, cross_mask):
-        encoder_output = self.encoder(x, src_mask)
-        decoder_output = self.decoder(x, encoder_output, tgt_mask, cross_mask)
+    def forward(self, src, tgt, src_mask, tgt_mask, cross_mask):
+        encoder_output = self.encoder(src, src_mask)
+        decoder_output = self.decoder(tgt, encoder_output, tgt_mask, cross_mask)
         return decoder_output

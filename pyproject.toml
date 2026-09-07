@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-attention-is-all-you-need = "attention_is_all_you_need:main"
+attention-is-all-you-need = "attention_is_all_you_need.main:main"
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]
