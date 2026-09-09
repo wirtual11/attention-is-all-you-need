@@ -2,7 +2,7 @@ from torch import nn
 
 from attention_is_all_you_need.EncoderLayer import EncoderLayer
 from attention_is_all_you_need.InputEmbeddings import InputEmbeddings
-from attention_is_all_you_need.positionalEncoding import PositionalEncoding
+from attention_is_all_you_need.PositionalEncoding import PositionalEncoding
 
 
 class TransformerEncoder(nn.Module):

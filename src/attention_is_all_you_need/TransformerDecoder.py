@@ -1,7 +1,7 @@
 from torch import nn
 import torch.nn.functional as F
 from attention_is_all_you_need.InputEmbeddings import InputEmbeddings
-from attention_is_all_you_need.positionalEncoding import PositionalEncoding
+from attention_is_all_you_need.PositionalEncodingimport PositionalEncoding
 from attention_is_all_you_need.DecoderLayer import DecoderLayer
 
 class TransformerDecoder(nn.Module):

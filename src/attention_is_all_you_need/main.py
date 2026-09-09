@@ -8,7 +8,7 @@ import torch
 from torch import nn
 from torch.nn.utils.rnn import pad_sequence
 
-from attention_is_all_you_need.Transformer import Transformer
+from .Transformer import Transformer
 
 PAD_ID = 0
 BOS_ID = 1
